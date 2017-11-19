@@ -81,7 +81,10 @@ public class Server extends alexmog.apilib.Server {
 	}
 
 	public void sendToSubscribers(String topic, String message) {
-		ChannelGroup connections = mTopicsSubscribers.get(topic);
+		ChannelGroup connections;
+		synchronized(mTopicsSubscribers) {
+			connections = mTopicsSubscribers.get(topic);
+		}
 		if (connections == null) return;
 		try {
 			connections.writeAndFlush(new MessagePacket(topic, message, System.currentTimeMillis()));
