@@ -22,8 +22,6 @@ import tw.zerator.ffs.pubsub.rabbitmq.RabbitMQConsumer;
 import alexmog.apilib.managers.RabbitMQManager;
 
 public class Server extends alexmog.apilib.Server {
-	public static final int PROTOCOL_VERSION = 1;
-	
 	@Manager
 	private static RabbitMQManager mRabbitMQManager;
 	private Map<String, ChannelGroup> mTopicsSubscribers = new HashMap<>();
