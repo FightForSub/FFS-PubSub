@@ -3,7 +3,8 @@ package tw.zerator.ffs.pubsub.network;
 import io.netty.channel.Channel;
 import tv.zerator.ffs.pubsub.Server;
 import tw.zerator.ffs.pubsub.network.packet.Packet;
-import tw.zerator.ffs.pubsub.network.packet.inbound.SubscribeUnsubscribePacket;
+import tw.zerator.ffs.pubsub.network.packet.inbound.SubscribePacket;
+import tw.zerator.ffs.pubsub.network.packet.inbound.UnsubscribePacket;
 import tw.zerator.ffs.pubsub.network.packet.outbound.PongPacket;
 import tw.zerator.ffs.pubsub.network.packet.outbound.ResponsePacket;
 
@@ -60,7 +61,7 @@ public class ClientConnection {
     public void handle(Packet packet) throws IllegalAccessException, IllegalArgumentException, InvocationTargetException, ClientProtocolException, URISyntaxException, IOException, InterruptedException {
     	if (packet.type == Packet.Type.PING) sendPacket(new PongPacket());
     	else if (packet.type == Packet.Type.SUBSCRIBE) {
-    		SubscribeUnsubscribePacket p = (SubscribeUnsubscribePacket) packet;
+    		SubscribePacket p = (SubscribePacket) packet;
     		for (String topic : p.topics) {
     			if (!mServer.checkTopicExistence(topic)) {
     				sendPacket(new ResponsePacket(p.nonce, ResponsePacket.Error.ERR_BADTOPIC));
@@ -71,7 +72,7 @@ public class ClientConnection {
     		for (String topic : p.topics) subscribeToTopic(topic);
     		sendPacket(new ResponsePacket(p.nonce, null));
     	} else if (packet.type == Packet.Type.UNSUBSCRIBE) {
-    		SubscribeUnsubscribePacket p = (SubscribeUnsubscribePacket) packet;
+    		UnsubscribePacket p = (UnsubscribePacket) packet;
     		for (String topic : p.topics) {
     			if (!mServer.checkTopicExistence(topic)) {
     				sendPacket(new ResponsePacket(p.nonce, ResponsePacket.Error.ERR_BADTOPIC));
