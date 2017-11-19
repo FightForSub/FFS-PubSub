@@ -1,0 +1,24 @@
+# PubSub topics, separated by a coma and in regex format
+topics.valid_topics=^event-score-v1\.[0-9]{1,10}$
+
+# Server
+server.port=8009
+
+# Netty
+netty.executor_threads=512
+
+# BoneCP config
+bonecp.idleConnectionTestPeriodInMinutes=1
+bonecp.idleMaxAgeInMinutes=4
+bonecp.maxConnectionsPerPartition=60
+bonecp.minConnectionsPerPartition=1
+bonecp.poolAvailabilityThreshold=10
+bonecp.partitionCount=4
+bonecp.acquireIncrement=5
+bonecp.statementsCacheSize=50
+bonecp.connectionTestStatement=SELECT 1
+bonecp.lazyInit=true
+
+# RabbitMQ configuration
+rabbitmq.active=true
+rabbitmq.uri=amqp://test:test@localhost/ffs
