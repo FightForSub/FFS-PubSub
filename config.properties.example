@@ -1,5 +1,5 @@
-# PubSub topics, separated by a coma
-topics.valid_topics=
+# PubSub topics, separated by a coma and in regex format
+topics.valid_topics=^event-score-v1\.[0-9]{1,10}$
 
 # Server
 server.port=8009
