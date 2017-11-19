@@ -128,7 +128,7 @@
 				  <configuration>
 				    <archive>
 				      <manifest>
-				        <mainClass>tv.zerator.ffs.pubsub.Main</mainClass>
+				        <mainClass>tv.zerator.ffs.pubsub.Server</mainClass>
 				      </manifest>
 				    </archive>
 				    <descriptorRefs>
