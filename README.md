@@ -45,7 +45,7 @@ cd target && java -jar ffs-pubsub-{VERSION}-jar-with-dependencies.jar
 
 ## Bug Report
 
-If you find any bugs, please report it on the [Issues](https://gitlab.com/AlexMog/FFS-PubSub/issues) page of the project
+If you find any bugs, please report it on the [Issues](https://github.com/AlexMog/FFS-PubSub/issues) page of the project
 
 ## Deployment
 
