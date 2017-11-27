@@ -4,7 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 import tw.zerator.ffs.pubsub.network.packet.inbound.PingPacket;
-import tw.zerator.ffs.pubsub.network.packet.inbound.SubscribeUnsubscribePacket;
+import tw.zerator.ffs.pubsub.network.packet.inbound.SubscribePacket;
+import tw.zerator.ffs.pubsub.network.packet.inbound.UnsubscribePacket;
 import tw.zerator.ffs.pubsub.network.packet.outbound.MessagePacket;
 import tw.zerator.ffs.pubsub.network.packet.outbound.PongPacket;
 import tw.zerator.ffs.pubsub.network.packet.outbound.ResponsePacket;
@@ -19,8 +20,8 @@ public class PacketRegistry {
     	CLIENTBOUND.registerPacket(Packet.Type.RESPONSE, ResponsePacket.class);
     	CLIENTBOUND.registerPacket(Packet.Type.PONG, PongPacket.class);
     	
-    	SERVERBOUND.registerPacket(Packet.Type.SUBSCRIBE, SubscribeUnsubscribePacket.class);
-    	SERVERBOUND.registerPacket(Packet.Type.UNSUBSCRIBE, SubscribeUnsubscribePacket.class);
+    	SERVERBOUND.registerPacket(Packet.Type.SUBSCRIBE, SubscribePacket.class);
+    	SERVERBOUND.registerPacket(Packet.Type.UNSUBSCRIBE, UnsubscribePacket.class);
     	SERVERBOUND.registerPacket(Packet.Type.PING, PingPacket.class);
     }
     
